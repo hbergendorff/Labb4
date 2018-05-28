@@ -34,7 +34,8 @@ export class AuthService {
   token;
   constructor(private http: HttpClient, private router: Router) {
     if (localStorage.getItem("user")){
-      this._user = jwt_decode(localStorage.getItem("user"));
+      this.token = localStorage.getItem("user");
+      this._user = jwt_decode(this.token);
     }
     // perform any logic upon application startup here...
   }
